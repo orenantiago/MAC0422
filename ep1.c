@@ -14,14 +14,14 @@ int liberageral(char *argumento){
 }
 
 int rodeveja(argumento){
-    int pid=fork();
-    if (pid!=0){
+    int status; 
+    if (fork() !=0){
         /*Processo pai*/
-        wait();
+        wait(&status);
     }
     else{
             /*Processo filho*/
-        execve(comando);
+        execve(argumento);
     }
 }
 
