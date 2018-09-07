@@ -3,17 +3,17 @@
 #include <string.h>
 #include <sys/stat.h>
 
-char comando[25], argumento[25];
+char comando[25], argumento[50];
 
-int protegepracaramba (){
-    chmod("ep1.c",0000);
+int protegepracaramba (char *argumento){
+    chmod(argumento,0000);
 }
 
-int liberageral(){
-    chmod("ep1.c",0777);
+int liberageral(char *argumento){
+    chmod(argumento,0777);
 }
 
-int rodeveja(){
+int rodeveja(argumento){
     int pid=fork();
     if (pid!=0){
         /*Processo pai*/
@@ -25,7 +25,7 @@ int rodeveja(){
     }
 }
 
-int rode(){
+int rode(argumento){
     int pid=fork();
     if (pid!=0){
         /*Processo pai*/
@@ -38,20 +38,18 @@ int rode(){
 
 int main(int argc, char **argv){
     printf("mac422shell \n\n");
-    while(scanf("%s", comando)!=EOF){
-        if(scanf("%s", argumento)==EOF) return;
-        print(">");
+    while(scanf("%s %s", comando, argumento)!=EOF){
         if(strcmp(comando, "protegepracaramba")==0){
-            protegepracaramba();
+            protegepracaramba(argumento);
         }
         else if(strcmp(comando, "liberageral")==0){
-            liberageral();
+            liberageral(argumento);
         }
         else if(strcmp(comando, "rodeveja")==0){
-            rodeveja();
+            rodeveja(argumento);
         }
         else if(strcmp(comando, "rode")==0){
-            rode();
+            rode(argumento);
         }
     }
 }
