@@ -18,6 +18,7 @@ int rodeveja(argumento){
     if (fork() !=0){
         /*Processo pai*/
         wait(&status);
+    	printf("=> programa '%s' retornou com codigo %d.\n" argumento, status);
     }
     else{
             /*Processo filho*/
