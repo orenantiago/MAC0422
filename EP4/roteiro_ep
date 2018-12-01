@@ -1,0 +1,12 @@
+informações
+sys/stat.h -> struct que lida com
+
+
+
+o que foi feito
+criei uma chamada posix open_tmp
+criei o assembly na pasta syscall
+novamente nao conseguimos criar uma chamada posix então criei um header open_tpm.h em /usr/src/include
+
+coloquei a chamada de sistema no número 31
+criei arquivo open_tmp.c em /usr/src/servers/fs
